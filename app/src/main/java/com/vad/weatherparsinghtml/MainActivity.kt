@@ -3,25 +3,20 @@ package com.vad.weatherparsinghtml
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.TextView
+import com.vad.weatherparsinghtml.databinding.ActivityMainBinding
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
 import java.lang.ref.WeakReference
-import java.security.AccessControlContext
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textViewWeather: TextView
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        textViewWeather = findViewById(R.id.text_view_weather)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val task = GetResultTask(this)
         task.execute()
@@ -47,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
             if (activity == null || activity.isFinishing) return
 
-            activity.textViewWeather.text = result
+            activity.binding.textViewWeather.text = result
         }
     }
 }
