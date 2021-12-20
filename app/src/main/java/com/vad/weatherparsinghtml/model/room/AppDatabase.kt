@@ -2,6 +2,7 @@ package com.vad.weatherparsinghtml.model.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.vad.weatherparsinghtml.model.city.CitiesDao
 import com.vad.weatherparsinghtml.model.city.entities.City
 
 @Database(
@@ -11,4 +12,6 @@ import com.vad.weatherparsinghtml.model.city.entities.City
     ]
 )
 abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun getCities(): CitiesDao
 }
