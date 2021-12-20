@@ -1,4 +1,4 @@
-package com.vad.weatherparsinghtml.model.repository
+package com.vad.weatherparsinghtml.model.city.repository
 
 import android.database.sqlite.SQLiteConstraintException
 import com.vad.weatherparsinghtml.model.city.CitiesDao
@@ -9,7 +9,7 @@ class RoomCitiesRepository(
 ) {
     private suspend fun findCitiesByName(name: String): Long? {
         val city = dao.findByName(name)
-        return city?.id
+        return city?.idCity
     }
 
     private suspend fun addCity(city: City) {

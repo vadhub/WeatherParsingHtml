@@ -12,7 +12,11 @@ import androidx.room.PrimaryKey
     ]
 )
 data class City(
-    @PrimaryKey(autoGenerate = true) val id: Long,
-    @ColumnInfo(collate = ColumnInfo.NOCASE) val name: String //Abg == abg
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    val idCity: Long,
+
+    @ColumnInfo(collate = ColumnInfo.NOCASE)
+    val name: String //Abg == abg
 ) {
 }
