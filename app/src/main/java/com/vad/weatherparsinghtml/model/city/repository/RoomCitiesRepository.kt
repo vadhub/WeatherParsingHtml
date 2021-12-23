@@ -10,7 +10,8 @@ class RoomCitiesRepository(
 ) {
 
     val getAllCities: LiveData<List<City>> = dao.getAllCities()
-    private suspend fun findCitiesByName(name: String): Long? {
+
+    suspend fun findCitiesByName(name: String): Long? {
         val city = dao.findByName(name)
         return city?.idCity
     }
