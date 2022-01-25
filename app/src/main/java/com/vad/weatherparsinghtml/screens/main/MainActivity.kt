@@ -8,6 +8,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vad.weatherparsinghtml.databinding.ActivityMainBinding
 import com.vad.weatherparsinghtml.screens.addcity.AddCityDialogFragment
 import com.vad.weatherparsinghtml.screens.addcity.Datable
+import com.vad.weatherparsinghtml.screens.viewweather.WeatherFragment
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
@@ -25,7 +26,8 @@ class MainActivity : AppCompatActivity(), Datable {
 //        Thread{
 //            println(gettingResult(places))
 //        }.start()
-
+        
+        supportFragmentManager.beginTransaction().replace(binding.fragmentContainer.id, WeatherFragment()).commit()
 
     }
 
