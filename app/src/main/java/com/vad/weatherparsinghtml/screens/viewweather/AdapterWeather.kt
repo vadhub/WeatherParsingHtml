@@ -1,5 +1,6 @@
 package com.vad.weatherparsinghtml.screens.viewweather
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.vad.weatherparsinghtml.model.weather.entities.Weather
 class AdapterWeather(weathers: List<Weather>) : RecyclerView.Adapter<AdapterWeather.MyViewHolder>() {
 
     private var weathers: List<Weather> = weathers
+        @SuppressLint("NotifyDataSetChanged")
         set(weathers) {
             field = weathers
             notifyDataSetChanged()

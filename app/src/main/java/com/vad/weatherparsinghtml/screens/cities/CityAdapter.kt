@@ -1,5 +1,6 @@
 package com.vad.weatherparsinghtml.screens.cities
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,16 +8,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vad.weatherparsinghtml.R
 
-class CityAdapter: RecyclerView.Adapter<CityAdapter.MyViewHolder>() {
+class CityAdapter(cities: List<String>): RecyclerView.Adapter<CityAdapter.MyViewHolder>() {
 
-    val cities = listOf<String>()
+    private var cities: List<String> = cities
+    @SuppressLint("NotifyDataSetChanged")
+    set(cities) {
+        field = cities
+        notifyDataSetChanged()
+    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_city, parent, false)
         return MyViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: CityAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.nameCity.text = cities[position]
     }
 
