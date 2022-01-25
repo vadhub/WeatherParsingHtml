@@ -2,11 +2,16 @@ package com.vad.weatherparsinghtml.screens.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vad.weatherparsinghtml.databinding.ActivityMainBinding
+import com.vad.weatherparsinghtml.screens.addcity.AddCityDialogFragment
+import com.vad.weatherparsinghtml.screens.addcity.Datable
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Datable {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -23,6 +28,20 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun onAddCity(view: View) {
+        showDialog()
+    }
+
+    override fun setNameCity(name: String) {
+        Log.i("MYDIALOG", "setNameCity: $name")
+    }
+
+    fun showDialog() {
+        val dialog = AddCityDialogFragment()
+        dialog.show(supportFragmentManager, "Add city")
+    }
+
 
 //    private fun gettingResult(places: List<String>):List<String> {
 //        val degrees = mutableListOf<String>()
