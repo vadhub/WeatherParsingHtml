@@ -8,11 +8,12 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.vad.weatherparsinghtml.databinding.ActivityMainBinding
 import com.vad.weatherparsinghtml.screens.addcity.AddCityDialogFragment
 import com.vad.weatherparsinghtml.screens.addcity.Datable
+import com.vad.weatherparsinghtml.screens.cities.CitiesFragment
 import com.vad.weatherparsinghtml.screens.viewweather.WeatherFragment
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
-class MainActivity : AppCompatActivity(), Datable {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -27,23 +28,9 @@ class MainActivity : AppCompatActivity(), Datable {
 //            println(gettingResult(places))
 //        }.start()
         
-        supportFragmentManager.beginTransaction().replace(binding.fragmentContainer.id, WeatherFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(binding.fragmentContainer.id, CitiesFragment()).commit()
 
     }
-
-    fun onAddCity(view: View) {
-        showDialog()
-    }
-
-    override fun setNameCity(name: String) {
-        Log.i("MYDIALOG", "setNameCity: $name")
-    }
-
-    fun showDialog() {
-        val dialog = AddCityDialogFragment()
-        dialog.show(supportFragmentManager, "Add city")
-    }
-
 
 //    private fun gettingResult(places: List<String>):List<String> {
 //        val degrees = mutableListOf<String>()

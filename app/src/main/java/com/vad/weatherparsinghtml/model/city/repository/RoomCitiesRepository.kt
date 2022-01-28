@@ -8,7 +8,6 @@ import com.vad.weatherparsinghtml.model.city.entities.City
 class RoomCitiesRepository(
     private val dao: CitiesDao
 ) {
-
     val getAllCities: LiveData<List<City>> = dao.getAllCities()
 
     suspend fun findCitiesByName(name: String): Long? {
