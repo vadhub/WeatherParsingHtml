@@ -1,12 +1,14 @@
 package com.vad.weatherparsinghtml.screens.cities
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vad.weatherparsinghtml.databinding.FragmentCitiesBinding
 import com.vad.weatherparsinghtml.model.city.entities.City
@@ -16,7 +18,7 @@ import com.vad.weatherparsinghtml.viewmodel.ViewModelApp
 
 class CitiesFragment : Fragment(), Datable {
 
-    private lateinit var viewModel: ViewModelApp
+    private var viewModel: ViewModelApp? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,14 +26,17 @@ class CitiesFragment : Fragment(), Datable {
     ): View? {
         val binding = FragmentCitiesBinding.inflate(inflater, container, false)
 
-        viewModel = ViewModelProvider(this).get(ViewModelApp::class.java)
-
         val myRecyclerView = binding.citiesListRecycler
         val adapter = CityAdapter()
+
         myRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         myRecyclerView.adapter = adapter
 
-        viewModel.readAllData.observe(viewLifecycleOwner, Observer { cities ->
+        viewModel = ViewModelProvider(requireActivity()).get(ViewModelApp::class.java)
+
+        Log.i("fdff", "${viewModel.toString()} dfg")
+
+        viewModel?.readAllData?.observe(viewLifecycleOwner, { cities ->
             adapter.setCities(cities)
         })
 
@@ -43,7 +48,10 @@ class CitiesFragment : Fragment(), Datable {
     }
 
     override fun setNameCity(name: String) {
-       viewModel.addCity(City(0, name))
+//        println(name)
+//        println(viewModel.toString())
+//        val city = City(0, name)
+//        viewModel?.addCity(city)
     }
 
     fun showDialog() {
