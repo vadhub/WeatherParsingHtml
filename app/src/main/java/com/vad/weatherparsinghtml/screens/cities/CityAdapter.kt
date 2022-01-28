@@ -5,15 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.vad.weatherparsinghtml.R
+import com.vad.weatherparsinghtml.model.city.entities.City
 
-class CityAdapter(cities: List<String>): RecyclerView.Adapter<CityAdapter.MyViewHolder>() {
+class CityAdapter(): RecyclerView.Adapter<CityAdapter.MyViewHolder>() {
 
-    private var cities: List<String> = cities
+    private var cities = emptyList<City>()
+
     @SuppressLint("NotifyDataSetChanged")
-    set(cities) {
-        field = cities
+    fun setCities(cities: List<City>) {
+        this.cities = cities
         notifyDataSetChanged()
     }
 
@@ -23,7 +26,7 @@ class CityAdapter(cities: List<String>): RecyclerView.Adapter<CityAdapter.MyView
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.nameCity.text = cities[position]
+        holder.nameCity.text = cities.get(position).nameCity
     }
 
     override fun getItemCount(): Int {
