@@ -11,7 +11,7 @@ import com.vad.weatherparsinghtml.model.weather.entities.Weather
 import com.vad.weatherparsinghtml.utils.Convertors
 
 @Database(
-    version = 1,
+    version = 3,
     entities = [
         City::class,
         Weather::class
