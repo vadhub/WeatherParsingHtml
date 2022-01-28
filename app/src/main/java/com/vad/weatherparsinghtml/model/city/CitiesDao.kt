@@ -10,10 +10,10 @@ import com.vad.weatherparsinghtml.model.city.entities.City
 @Dao
 interface CitiesDao {
 
-    @Query("SELECT * FROM cities ORDER BY id ASC")
+    @Query("SELECT * FROM cities ORDER BY id_city ASC")
     fun getAllCities(): LiveData<List<City>>
 
-    @Query("SELECT * from cities WHERE name = :name")
+    @Query("SELECT * from cities WHERE name_city = :name")
     suspend fun findByName(name: String): City?
 
     @Update
@@ -22,6 +22,6 @@ interface CitiesDao {
     @Insert
     suspend fun addCity(city: City)
 
-    @Query("DELETE FROM cities WHERE id =:id")
+    @Query("DELETE FROM cities WHERE id_city =:id")
     suspend fun deleteCity(id: Long): Int
 }

@@ -12,7 +12,7 @@ import java.util.*
     foreignKeys = [
         ForeignKey(
             entity = City::class,
-            parentColumns = ["id"],
+            parentColumns = ["id_city"],
             childColumns = ["city_id"],
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
@@ -21,8 +21,11 @@ import java.util.*
 )
 data class Weather(
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    @ColumnInfo(name = "city_id") val cityId: Long,
+    @ColumnInfo(name = "id_weather")
+    val idWeather: Long,
+
+    @ColumnInfo(name = "city_id")
+    val cityId: Long,
     val weather: Int,
     val date: Date
 ) {
