@@ -12,13 +12,13 @@ import kotlinx.coroutines.launch
 
 class ViewModelApp(application: Application) : AndroidViewModel(application) {
 
-    private val getCities: LiveData<List<City>>
     private val repository: RoomCitiesRepository
+    val readAllData: LiveData<List<City>>
 
     init {
         val citiesDao = AppDatabase.getDatabase(application).getCities()
         repository = RoomCitiesRepository(citiesDao)
-        getCities = repository.getAllCities
+        readAllData = repository.getAllCities
     }
 
     fun addCity(city: City) {
