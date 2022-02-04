@@ -1,4 +1,4 @@
-package com.vad.weatherparsinghtml.model.utils
+package com.vad.weatherparsinghtml.model.api.utils
 
 class Constants {
     companion object {

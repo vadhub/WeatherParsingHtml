@@ -1,4 +1,4 @@
-package com.vad.weatherparsinghtml.model.pojo
+package com.vad.weatherparsinghtml.model.api.pojo
 
 data class Main(
     val location: Location,

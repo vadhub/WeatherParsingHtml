@@ -1,4 +1,4 @@
-package com.vad.weatherparsinghtml.model.pojo
+package com.vad.weatherparsinghtml.model.api.pojo
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
