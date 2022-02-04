@@ -1,4 +1,4 @@
-package com.vad.weatherparsinghtml.model.city.entities
+package com.vad.weatherparsinghtml.model.room.city.entities
 
 import androidx.room.*
 

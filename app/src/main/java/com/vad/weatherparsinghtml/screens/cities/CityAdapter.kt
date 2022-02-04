@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.vad.weatherparsinghtml.R
-import com.vad.weatherparsinghtml.model.city.entities.City
+import com.vad.weatherparsinghtml.model.room.city.entities.City
 
 class CityAdapter(): RecyclerView.Adapter<CityAdapter.MyViewHolder>() {
 

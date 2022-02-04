@@ -1,11 +1,11 @@
-package com.vad.weatherparsinghtml.model.city
+package com.vad.weatherparsinghtml.model.room.city
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.vad.weatherparsinghtml.model.city.entities.City
+import com.vad.weatherparsinghtml.model.room.city.entities.City
 
 @Dao
 interface CitiesDao {

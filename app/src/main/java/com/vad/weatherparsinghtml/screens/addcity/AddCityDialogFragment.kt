@@ -10,7 +10,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import com.vad.weatherparsinghtml.R
 import com.vad.weatherparsinghtml.databinding.DialogFragmentAddCityBinding
-import com.vad.weatherparsinghtml.model.city.entities.City
+import com.vad.weatherparsinghtml.model.room.city.entities.City
 import com.vad.weatherparsinghtml.screens.cities.CitiesFragment
 import com.vad.weatherparsinghtml.viewmodel.ViewModelApp
 

@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.vad.weatherparsinghtml.model.city.entities.City
-import com.vad.weatherparsinghtml.model.city.repository.RoomCitiesRepository
+import com.vad.weatherparsinghtml.model.room.city.entities.City
+import com.vad.weatherparsinghtml.model.room.city.repository.RoomCitiesRepository
 import com.vad.weatherparsinghtml.model.room.AppDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

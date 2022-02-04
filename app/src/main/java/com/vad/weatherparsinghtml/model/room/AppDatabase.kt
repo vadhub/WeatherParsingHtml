@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.vad.weatherparsinghtml.model.city.CitiesDao
-import com.vad.weatherparsinghtml.model.city.entities.City
-import com.vad.weatherparsinghtml.model.weather.entities.Weather
+import com.vad.weatherparsinghtml.model.room.city.CitiesDao
+import com.vad.weatherparsinghtml.model.room.city.entities.City
+import com.vad.weatherparsinghtml.model.room.weather.entities.Weather
 import com.vad.weatherparsinghtml.utils.Convertors
 
 @Database(

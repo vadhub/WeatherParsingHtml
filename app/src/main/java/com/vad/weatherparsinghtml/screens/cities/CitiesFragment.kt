@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vad.weatherparsinghtml.databinding.FragmentCitiesBinding
-import com.vad.weatherparsinghtml.model.city.entities.City
+import com.vad.weatherparsinghtml.model.room.city.entities.City
 import com.vad.weatherparsinghtml.screens.addcity.AddCityDialogFragment
 import com.vad.weatherparsinghtml.screens.addcity.Datable
 import com.vad.weatherparsinghtml.viewmodel.ViewModelApp

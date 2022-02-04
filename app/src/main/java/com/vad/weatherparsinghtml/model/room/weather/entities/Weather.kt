@@ -1,10 +1,10 @@
-package com.vad.weatherparsinghtml.model.weather.entities
+package com.vad.weatherparsinghtml.model.room.weather.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.vad.weatherparsinghtml.model.city.entities.City
+import com.vad.weatherparsinghtml.model.room.city.entities.City
 import java.util.*
 
 @Entity(

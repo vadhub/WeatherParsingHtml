@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vad.weatherparsinghtml.R
-import com.vad.weatherparsinghtml.model.weather.entities.Weather
+import com.vad.weatherparsinghtml.model.room.weather.entities.Weather
 
 class AdapterWeather(weathers: List<Weather>) : RecyclerView.Adapter<AdapterWeather.MyViewHolder>() {
 

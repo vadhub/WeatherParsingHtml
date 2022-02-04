@@ -1,9 +1,9 @@
-package com.vad.weatherparsinghtml.model.city.repository
+package com.vad.weatherparsinghtml.model.room.city.repository
 
 import android.database.sqlite.SQLiteConstraintException
 import androidx.lifecycle.LiveData
-import com.vad.weatherparsinghtml.model.city.CitiesDao
-import com.vad.weatherparsinghtml.model.city.entities.City
+import com.vad.weatherparsinghtml.model.room.city.CitiesDao
+import com.vad.weatherparsinghtml.model.room.city.entities.City
 
 class RoomCitiesRepository(
     private val dao: CitiesDao
