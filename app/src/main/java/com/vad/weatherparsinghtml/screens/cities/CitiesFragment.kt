@@ -11,10 +11,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vad.weatherparsinghtml.databinding.FragmentCitiesBinding
+import com.vad.weatherparsinghtml.model.api.repository.RepositoryApi
 import com.vad.weatherparsinghtml.model.room.city.entities.City
 import com.vad.weatherparsinghtml.screens.addcity.AddCityDialogFragment
 import com.vad.weatherparsinghtml.screens.addcity.Datable
 import com.vad.weatherparsinghtml.viewmodel.ViewModelApp
+import com.vad.weatherparsinghtml.viewmodel.ViewModelAppFactory
 
 class CitiesFragment : Fragment(), Datable {
 
@@ -32,15 +34,23 @@ class CitiesFragment : Fragment(), Datable {
         myRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         myRecyclerView.adapter = adapter
 
-        viewModel = ViewModelProvider(requireActivity()).get(ViewModelApp::class.java)
+        val repositoryApi = RepositoryApi()
+        val viewModelAppFactory = ViewModelAppFactory(requireActivity().application, repositoryApi)
+        viewModel = ViewModelProvider(requireActivity(), viewModelAppFactory).get(ViewModelApp::class.java)
 
         Log.i("fdff", "${viewModel.toString()} dfg")
 
-        viewModel?.readAllData?.observe(viewLifecycleOwner, { cities ->
+        viewModel?.readAllData?.observe(viewLifecycleOwner) { cities ->
             adapter.setCities(cities)
-        })
+        }
 
-        binding.floatingActionButton.setOnClickListener{
+        viewModel?.getWeather("Volgograd")
+
+        viewModel?.myResponse?.observe(viewLifecycleOwner) { response ->
+            print(response.current.feelslikeC)
+        }
+
+        binding.floatingActionButton.setOnClickListener {
             showDialog()
         }
 
