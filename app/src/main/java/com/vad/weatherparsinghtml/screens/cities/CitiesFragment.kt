@@ -6,13 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vad.weatherparsinghtml.databinding.FragmentCitiesBinding
 import com.vad.weatherparsinghtml.model.api.repository.RepositoryApi
-import com.vad.weatherparsinghtml.model.room.city.entities.City
 import com.vad.weatherparsinghtml.screens.addcity.AddCityDialogFragment
 import com.vad.weatherparsinghtml.screens.addcity.Datable
 import com.vad.weatherparsinghtml.viewmodel.ViewModelApp
@@ -36,7 +33,8 @@ class CitiesFragment : Fragment(), Datable {
 
         val repositoryApi = RepositoryApi()
         val viewModelAppFactory = ViewModelAppFactory(requireActivity().application, repositoryApi)
-        viewModel = ViewModelProvider(requireActivity(), viewModelAppFactory).get(ViewModelApp::class.java)
+        viewModel =
+            ViewModelProvider(requireActivity(), viewModelAppFactory).get(ViewModelApp::class.java)
 
         Log.i("fdff", "${viewModel.toString()} dfg")
 
@@ -47,7 +45,16 @@ class CitiesFragment : Fragment(), Datable {
         viewModel?.getWeather("Volgograd")
 
         viewModel?.myResponse?.observe(viewLifecycleOwner) { response ->
-            print(response.current.feelslikeC)
+
+            if (response.isSuccessful) {
+                println(response.body()?.current?.isDay)
+                println(response.body()?.current?.cloud)
+                println(response.body()?.current?.feelslikeC)
+                println(response.body()?.current?.feelslikeF)
+                println(response.body()?.current?.humidity)
+            } else {
+                response.errorBody()
+            }
         }
 
         binding.floatingActionButton.setOnClickListener {
