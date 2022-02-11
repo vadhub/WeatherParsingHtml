@@ -1,7 +1,6 @@
 package com.vad.weatherparsinghtml.viewmodel
 
 import android.app.Application
-import android.icu.text.Replaceable
 import androidx.lifecycle.*
 import com.vad.weatherparsinghtml.model.api.pojo.Main
 import com.vad.weatherparsinghtml.model.api.repository.RepositoryApi
@@ -11,7 +10,7 @@ import com.vad.weatherparsinghtml.model.room.AppDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ViewModelApp(application: Application ,private val repositoryApi: RepositoryApi) : ViewModel() {
+class ViewModelApp(private val application: Application ,private val repositoryApi: RepositoryApi) : ViewModel() {
 
     private val repository: RoomCitiesRepository
     val readAllData: LiveData<List<City>>
