@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/city_screen"
+        android:title="cities"
+        android:icon="@drawable/ic_baseline_list_24"
+        />
+
+    <item
+        android:id="@+id/weathers"
+        android:title="weathers"
+        android:icon="@drawable/ic_baseline_view_list_24"
+        />
+
+</menu>
