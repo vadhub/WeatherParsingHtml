@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.vad.weatherparsinghtml.model.room.city.CitiesDao
 import com.vad.weatherparsinghtml.model.room.city.entities.City
+import com.vad.weatherparsinghtml.model.room.weather.WeatherDao
 import com.vad.weatherparsinghtml.model.room.weather.entities.Weather
 import com.vad.weatherparsinghtml.utils.Convertors
 
@@ -21,6 +22,7 @@ import com.vad.weatherparsinghtml.utils.Convertors
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getCities(): CitiesDao
+    abstract fun getWeathersDao(): WeatherDao
 
     companion object {
         @Volatile
