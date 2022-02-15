@@ -15,7 +15,7 @@ import com.vad.weatherparsinghtml.screens.addcity.Datable
 import com.vad.weatherparsinghtml.viewmodel.ViewModelApp
 import com.vad.weatherparsinghtml.viewmodel.ViewModelAppFactory
 
-class CitiesFragment : Fragment(), Datable {
+class CitiesFragment : Fragment(){
 
     private var viewModel: ViewModelApp? = null
 
@@ -62,13 +62,6 @@ class CitiesFragment : Fragment(), Datable {
         }
 
         return binding.root
-    }
-
-    override fun setNameCity(name: String) {
-//        println(name)
-//        println(viewModel.toString())
-//        val city = City(0, name)
-//        viewModel?.addCity(city)
     }
 
     fun showDialog() {
