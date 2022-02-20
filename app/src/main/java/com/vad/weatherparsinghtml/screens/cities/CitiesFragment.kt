@@ -31,8 +31,7 @@ class CitiesFragment : Fragment(){
         myRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         myRecyclerView.adapter = adapter
 
-        val repositoryApi = RepositoryApi()
-        val viewModelAppFactory = ViewModelAppFactory(requireActivity().application, repositoryApi)
+        val viewModelAppFactory = ViewModelAppFactory(requireActivity().application)
         viewModel =
             ViewModelProvider(requireActivity(), viewModelAppFactory).get(ViewModelApp::class.java)
 
@@ -42,20 +41,7 @@ class CitiesFragment : Fragment(){
             adapter.setCities(cities)
         }
 
-        viewModel?.getWeather("Volgograd")
-
-        viewModel?.myResponse?.observe(viewLifecycleOwner) { response ->
-
-            if (response.isSuccessful) {
-                println(response.body()?.current?.isDay)
-                println(response.body()?.current?.cloud)
-                println(response.body()?.current?.feelslikeC)
-                println(response.body()?.current?.feelslikeF)
-                println(response.body()?.current?.humidity)
-            } else {
-                response.errorBody()
-            }
-        }
+        //viewModel?.getWeather("Volgograd")
 
         binding.floatingActionButton.setOnClickListener {
             showDialog()

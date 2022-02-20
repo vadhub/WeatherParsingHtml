@@ -11,24 +11,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class ViewModelApp(private val application: Application ,private val repositoryApi: RepositoryApi) : ViewModel() {
+class ViewModelApp(private val application: Application) : ViewModel() {
 
     private val repository: RoomCitiesRepository
     val readAllData: LiveData<List<City>>
-
-    val myResponse: MutableLiveData<Response<Main>> = MutableLiveData()
 
     init {
         val citiesDao = AppDatabase.getDatabase(application).getCities()
         repository = RoomCitiesRepository(citiesDao)
         readAllData = repository.getAllCities
-    }
-
-    fun getWeather(q: String) {
-        viewModelScope.launch {
-            val response = repositoryApi.getWeather(q)
-            myResponse.value = response
-        }
     }
 
     fun addCity(city: City) {
