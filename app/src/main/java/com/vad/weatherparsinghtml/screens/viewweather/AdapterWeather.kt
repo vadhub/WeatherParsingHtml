@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vad.weatherparsinghtml.R
 import com.vad.weatherparsinghtml.model.room.weather.entities.Weather
 
-class AdapterWeather(weathers: List<Weather>) : RecyclerView.Adapter<AdapterWeather.MyViewHolder>() {
+class AdapterWeather() : RecyclerView.Adapter<AdapterWeather.MyViewHolder>() {
 
-    private var weathers: List<Weather> = weathers
-        @SuppressLint("NotifyDataSetChanged")
-        set(weathers) {
-            field = weathers
-            notifyDataSetChanged()
-        }
+    private var weathers: List<Weather> = emptyList()
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setWeathers(weathers: List<Weather>) {
+        this.weathers = weathers
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val viewHolder = LayoutInflater.from(parent.context).inflate(R.layout.item_city_weather, parent, false)
