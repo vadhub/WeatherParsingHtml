@@ -9,15 +9,13 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vad.weatherparsinghtml.databinding.FragmentCitiesBinding
-import com.vad.weatherparsinghtml.model.api.repository.RepositoryApi
 import com.vad.weatherparsinghtml.screens.addcity.AddCityDialogFragment
-import com.vad.weatherparsinghtml.screens.addcity.Datable
-import com.vad.weatherparsinghtml.viewmodel.ViewModelApp
+import com.vad.weatherparsinghtml.viewmodel.ViewModelCity
 import com.vad.weatherparsinghtml.viewmodel.ViewModelAppFactory
 
 class CitiesFragment : Fragment(){
 
-    private var viewModel: ViewModelApp? = null
+    private var viewModel: ViewModelCity? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,15 +31,11 @@ class CitiesFragment : Fragment(){
 
         val viewModelAppFactory = ViewModelAppFactory(requireActivity().application)
         viewModel =
-            ViewModelProvider(requireActivity(), viewModelAppFactory).get(ViewModelApp::class.java)
-
-        Log.i("fdff", "${viewModel.toString()} dfg")
+            ViewModelProvider(requireActivity(), viewModelAppFactory).get(ViewModelCity::class.java)
 
         viewModel?.readAllData?.observe(viewLifecycleOwner) { cities ->
             adapter.setCities(cities)
         }
-
-        //viewModel?.getWeather("Volgograd")
 
         binding.floatingActionButton.setOnClickListener {
             showDialog()

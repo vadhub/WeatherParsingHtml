@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class ViewModelApp(private val application: Application) : ViewModel() {
+class ViewModelCity(private val application: Application) : ViewModel() {
 
     private val repository: RoomCitiesRepository
     val readAllData: LiveData<List<City>>
