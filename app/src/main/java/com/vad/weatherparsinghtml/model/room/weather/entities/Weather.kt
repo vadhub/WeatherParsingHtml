@@ -26,7 +26,7 @@ data class Weather(
 
     @ColumnInfo(name = "city_id")
     val cityId: Long,
-    val weather: Int,
-    val date: Date
+    val weather: Float,
+    val date: Long
 ) {
 }
